@@ -1,0 +1,41 @@
+# Ignore Maven build directory
+/target/
+
+# Ignore Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Ignore temporary files
+*.log
+*.tmp
+*.out
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+
+# Ignore Eclipse project files
+.project
+.classpath
+.settings/
+
+# Ignore VS Code project files
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled class files
+*.class
+
+# Ignore other Maven files
+mvnw
+mvnw.cmd
+
+# Ignore node_modules for any frontend dependencies
+node_modules/
+
+# Ignore environment variables files
+.env
+
