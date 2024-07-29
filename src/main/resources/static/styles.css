@@ -1,0 +1,9 @@
+.--btn-primary{
+    background-color: #0f6fff;
+}
+.--btn-secondary{
+    background-color: green;
+}
+.--btn-danger{
+    color: red;
+}

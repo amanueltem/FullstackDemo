@@ -83,4 +83,7 @@ public class AppUser {
     public void setRole(String role){
         this.role=role;
     }
+    public void setCreatedAt(Date createdAt){
+        this.createdAt=createdAt;
+    }
 }
