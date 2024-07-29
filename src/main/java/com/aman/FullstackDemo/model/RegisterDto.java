@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public class RegisterDto {
     @NotEmpty
-    private String firstname;
+    private String firstName;
     @NotEmpty
     private String lastName;
     @NotEmpty
@@ -20,7 +20,7 @@ public class RegisterDto {
 
 
     public String getFirstName(){
-        return firstname;
+        return firstName;
     }
     public String getLastName(){
         return lastName;
@@ -43,7 +43,7 @@ public class RegisterDto {
 
 
     public void setFirstName(String firstName){
-        this.firstname=firstName;
+        this.firstName=firstName;
     }
     public void setLastName(String lastName){
         this.lastName=lastName;

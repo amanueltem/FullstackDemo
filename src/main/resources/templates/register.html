@@ -54,6 +54,15 @@
              th:if="${#fields.hasErrors('phone')}"
              th:errors="${registerDto.phone}"></span>
              </div>
+             
+
+             <div class="form-element">
+              <label for="address">Phone:</label>
+              <input type="text" th:field="${registerDto.address}">
+              <span class="validationError"
+              th:if="${#fields.hasErrors('address')}"
+              th:errors="${registerDto.address}"></span>
+              </div>
 
              <div class="form-element">
              <label for="password">Password:</label>
@@ -72,7 +81,7 @@
 
              <div class="form-buttons">
              <button type="submit" class="--btn-primary">Submit</button>
-             <a href="/"><button class="--btn-secondary">Cancel</button></a>
+             <a href="/"><button class="--btn-cancel">Cancel</button></a>
              </div>
              </div>
              </div>
