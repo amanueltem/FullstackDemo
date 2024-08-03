@@ -5,18 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Stack Demo</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
-
 </head>
 <body>
-    <nav>
-        <a th:href="@{/}"><button>Home</button></a>
-        <a th:href="@{/contact}"><button>Contact</button></a>
-        <a th:href="@{/register}"><button>Register</button></a>
-        <a th:href="@{/login}"><button>Login</button></a>
-    </nav>
+    <div th:replace="~{fragments/nav :: nav}"></div>
     <header>
-        <h1>Welcome to the Student Management System</h1>
+        <h1>E-shop</h1>
+      
     </header>
 </body>
 </html>
-

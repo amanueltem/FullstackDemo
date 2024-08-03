@@ -6,12 +6,7 @@
         <link rel="stylesheet" th:href="@{/styles.css}"/>
     </head>
     <body>
-        <nav>
-            <a href="/"><button>Home</button></a>
-            <a href="/contact"><button>Contact</button></a>
-            <a href="/register"><button>Register</button></a>
-            <a href="/login"><button>Login</button></a>
-          </nav>
+      <div th:replace="~{fragments/nav :: nav}"></div>
 
             <div th:if="${success}">
                 <strong>Account has created successfuly!</strong>
@@ -20,8 +15,7 @@
 
           <form  method="post" th:object="${registerDto}">
             <div class="register_form">
-            <input type="hidden" th:name="${_csrf.parameterName}"
-             th:value="${_csrf.token}">
+           
 
              <div class="form-element">
              <label for="firstName">First Name:</label>
@@ -56,13 +50,6 @@
              </div>
              
 
-             <div class="form-element">
-              <label for="address">Phone:</label>
-              <input type="text" th:field="${registerDto.address}">
-              <span class="validationError"
-              th:if="${#fields.hasErrors('address')}"
-              th:errors="${registerDto.address}"></span>
-              </div>
 
              <div class="form-element">
              <label for="password">Password:</label>
