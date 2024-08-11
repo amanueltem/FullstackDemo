@@ -12,8 +12,8 @@
         <h1>Products</h1>
         <a href="/products/create"><button>Create Product</button></a>
         <table>
-            <tr>
-                <thead>
+            <thead>
+                <tr>
                     <th>Name</th>
                     <th>Brand</th>
                     <th>Category</th>
@@ -21,23 +21,22 @@
                     <th>Image</th>
                     <th>Created At</th>
                     <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr th:each="product: ${products}"></tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.brand}"></td>
                     <td th:text="${product.category}"></td>
-                    <td th:text="${product.price} + '$'"></td>
-                    <td> <img th:src="@{'/images/' + ${product.imageFileName}}" alt=""></td>
-                    <td th:text="${product.createdAt.toString().toSubstring(0,10)}"></td>
+                    <td th:text="${product.price} + ' $'"></td>
+                    <td><img th:src="@{'/images/' + ${product.imageFileName}}" alt="Product Image"></td>
+                    <td th:text="${#dates.format(product.createdAt, 'yyyy-MM-dd')}"></td>
                     <td>
                         <a th:href="@{/products/edit(id=${product.id})}"><button>Edit</button></a>
-                        <a th:href="@{/products/delete(id=${product.id})}"
-                         onclick="return confirm('Are you sure?')">
-                        <button>Delete</button></a>
+                        <a th:href="@{/products/delete(id=${product.id})}" onclick="return confirm('Are you sure?')"><button>Delete</button></a>
                     </td>
-                </tbody>
-            </tr>
+                </tr>
+            </tbody>
         </table>
     </header>
 </body>

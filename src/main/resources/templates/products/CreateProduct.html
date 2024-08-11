@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fullstack Demo</title>
+    <link rel="stylesheet" th:href="@{/register.css}" />
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <div th:replace="~{fragments/nav :: nav}"></div>
+
+    <form method="post" th:object="${productDto}" enctype="multipart/form-data">
+        <div class="register_form">
+            <div class="form-element">
+                <label for="name">Name:</label>
+                <input type="text" th:field="${productDto.name}">
+                <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="${productDto.name}"></span>
+            </div>
+
+            <div class="form-element">
+                <label for="brand">Brand:</label>
+                <input type="text" th:field="${productDto.brand}">
+                <span class="validationError" th:if="${#fields.hasErrors('brand')}" th:errors="${productDto.brand}"></span>
+            </div>
+
+            <div class="form-element">
+                <label for="category">Category:</label>
+                <select th:field="${productDto.category}">
+                    <option value="Other">Other</option>
+                    <option value="Phones">Phones</option>
+                    <option value="Computers">Computers</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Printers">Printers</option>
+                    <option value="Cameras">Cameras</option>
+                </select>
+                <span class="validationError" th:if="${#fields.hasErrors('category')}" th:errors="${productDto.category}"></span>
+            </div>
+
+            <div class="form-element">
+                <label for="price">Price:</label>
+                <input type="text" th:field="${productDto.price}">
+                <span class="validationError" th:if="${#fields.hasErrors('price')}" th:errors="${productDto.price}"></span>
+            </div>
+
+            <div class="form-element">
+                <label for="description">Description:</label>
+                <textarea th:field="${productDto.description}" cols="30" rows="10"></textarea>
+                <span class="validationError" th:if="${#fields.hasErrors('description')}" th:errors="${productDto.description}"></span>
+            </div>
+
+            <div class="form-element">
+                <label for="imageFile">Image:</label>
+                <input type="file" th:field="${productDto.imageFile}">
+                <span class="validationError" th:if="${#fields.hasErrors('imageFile')}" th:errors="${productDto.imageFile}"></span>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="--btn-primary">Submit</button>
+                <a href="/products"><button type="button" class="--btn-cancel">Cancel</button></a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

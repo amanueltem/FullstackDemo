@@ -2,6 +2,7 @@
     <nav>
         <a th:href="@{/}"><button>Home</button></a>
         <a th:href="@{/contact}"><button>Contact</button></a>
+        <a th:href="@{/products}" sec:authorize="isAuthenticated()"><button>Products</button></a>
         <a th:href="@{/register}" sec:authorize="!isAuthenticated()"><button>Register</button></a>
         <a th:href="@{/login}" sec:authorize="!isAuthenticated()"><button>Login</button></a>
         <a th:href="@{/logout}" sec:authorize="isAuthenticated()"><button>Logout</button></a>
