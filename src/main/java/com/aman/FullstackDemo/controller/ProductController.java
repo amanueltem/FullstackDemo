@@ -116,6 +116,58 @@ public class ProductController {
             }
             return "products/EditProduct";
     }
+    
+    
+    
+ @PostMapping("/edit")
+public String editProduct(
+    @RequestParam int id,
+    @ModelAttribute("productDto") ProductDto productDto) {
+
+    Product product = repo.findById(id).orElse(null);
+    if (product == null) return "redirect:/products";
+
+    product.setName(productDto.getName());
+    product.setBrand(productDto.getBrand());
+    product.setCategory(productDto.getCategory());
+    product.setPrice(productDto.getPrice());
+    product.setDescription(productDto.getDescription());
+
+    // Check if a new image file is uploaded
+    MultipartFile newImage = productDto.getImageFile();
+    if (newImage != null && !newImage.isEmpty()) {
+        try {
+            // Delete old image
+            Path oldImagePath = Paths.get("public/images/" + product.getImageFileName());
+             System.out.println("\n\n\n.................******"+newImage.getOriginalFilename());
+            Files.deleteIfExists(oldImagePath);
+
+            // Save new image
+            String newImageFileName = new Date().getTime() + "_" + newImage.getOriginalFilename();
+            String uploadDir = "public/images/";
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            try (InputStream inputStream = newImage.getInputStream()) {
+                Files.copy(inputStream, Paths.get(uploadDir + newImageFileName),
+                           StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            product.setImageFileName(newImageFileName);
+        } catch (Exception ex) {
+            System.out.println("Image update failed: " + ex.getMessage());
+        }
+    }
+
+    repo.save(product);
+    return "redirect:/products";
+}
+
+
+    
+    
     @GetMapping("/delete")
     public String deleteProduct(@RequestParam int id){
         try{

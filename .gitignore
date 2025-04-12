@@ -4,6 +4,8 @@
 # Ignore Maven wrapper
 .mvn/wrapper/maven-wrapper.jar
 
+
+public/
 # Ignore temporary files
 *.log
 *.tmp
